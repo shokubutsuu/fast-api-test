@@ -1,0 +1,1 @@
+this is a short demo of fast api.
