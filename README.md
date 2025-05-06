@@ -3,7 +3,9 @@ this is a short demo of fast api.
 if you are using ssh connection:
 
 SERVER SIDE:
+
 run the following command to activate server on localhost port 8000
+
 uvicorn server:app --host 127.0.0.1 --port 8000
 
 CLIENT SIDE:
