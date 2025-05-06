@@ -9,13 +9,14 @@ def send_log(msg: str):
     resp = requests.post(url, json={"text": msg})
     print("Server says:", resp.json())
 
-def sent_act():
+def send_act():
     url = "http://localhost:8000/act" 
     resp = requests.post(
         url,
         json={"image": np.zeros((256, 256, 3), dtype=np.uint8), # TODO: replace this with your photo!
-              "instruction": "do something"})
+              "instruction": "do something",
+              "unnorm_key":"roboturk"})
     print("Server says:", resp.json())
 
 if __name__ == "__main__":
-    send_log("Hello SSH!")
+    send_act()
