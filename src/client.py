@@ -32,7 +32,7 @@ def crop_center_square(image):
     return image[start_y: start_y+min_dim, start_x: start_x + min_dim]
 
 def capture_and_process_image():
-    cap = cv2.VideoCapure(0)
+    cap = cv2.VideoCapture(0)
     if not cap.isOpened():
         raise RuntimeError("Cannot open camera")
     
@@ -42,13 +42,13 @@ def capture_and_process_image():
         raise RuntimeError("failed to capture image")
     
     frame = crop_center_square(frame)
-    frame_resized = cv2.resize((256,256))
+    frame_resized = cv2.resize(frame,(256,256))
     return frame_resized
 
 if __name__ == "__main__":
     instruction = "do something"
     img = capture_and_process_image()
-    img_rgb = cv2.cvyColor(img, cv2.COLOR_BGR2RGB)
+    img_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
     cv2.imwrite("img.jpg", img)
     cv2.imwrite("img_rgb.jpg", img_rgb)
     send_act(img_rgb, instruction)
